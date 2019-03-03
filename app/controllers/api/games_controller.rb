@@ -29,4 +29,9 @@ class Api::GamesController < ApplicationController
     render 'game.json.jbuilder'
   end
 
+  def segment_action
+    @city = params[:place]
+    render 'segment_route.json.jbuilder'
+  end
+
 end
