@@ -16,4 +16,17 @@ class Api::GamesController < ApplicationController
     render 'name_view.json.jbuilder'
   end
 
+  def game_action
+    guess = params[:guess].to_i
+    answer = 62
+    if guess < answer
+      @message = "Sorry, you guessed too low."
+    elsif guess > answer
+      @message = "Sorry, you guessed too high."
+    elsif guess == answer
+      @message = "Correct! Great guess."
+    end
+    render 'game.json.jbuilder'
+  end
+
 end
